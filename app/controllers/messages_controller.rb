@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
         message = Message.new(message_params)
         if message.save
           ActionCable.server.broadcast 'messages',
-            message: mmessage,
+            message: message,
             user: message.user.username,
             user_facing: true
           head :ok
