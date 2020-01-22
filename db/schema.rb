@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conversations", force: :cascade do |t|
     t.integer "receiver_id"
     t.integer "sender_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "content"
     t.integer "conversation_id"
     t.datetime "created_at", precision: 6, null: false
