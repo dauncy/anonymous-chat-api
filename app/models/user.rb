@@ -5,4 +5,7 @@ class User < ApplicationRecord
     has_many :senders, through: :sender_conversations, source: :sender
     has_many :sender_conversations, foreign_key: :receiver_id, class_name: "Conversation" 
     has_secure_password
+    validates :username, uniquesness: true
+    validates :username, presence: true
+
   end
