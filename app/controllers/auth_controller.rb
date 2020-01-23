@@ -12,6 +12,7 @@ class AuthController < ApplicationController
     end
   end
 
+
   private
  
   def user_login_params
