@@ -2,12 +2,12 @@ class ConversationsController < ApplicationController
 
     def index
         conversations = Conversation.all
-        render json: conversations
+        render json: conversations, :include => :messages
     end 
 
     def show
         conversation = Conversation.find(params[:id])
-        render json: conversation
+        render json: conversation, :include => :messages
     end 
 
     def create 
