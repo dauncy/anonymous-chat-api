@@ -13,6 +13,8 @@ class MessagesController < ApplicationController
             user: message.user.username,
             user_facing: true
           head :ok
+
+          
         else 
           ActionCable.server.broadcast 'messages',
             errors: message.errors
